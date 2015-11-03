@@ -8,6 +8,7 @@
 
 #import "FiltersViewController.h"
 #import "SwitchViewCell.h"
+#import "OptionCell.h"
 #import "YelpClient.h"
 
 @interface FiltersViewController () <UITableViewDataSource, UITableViewDelegate, SwitchCellDelegate>
@@ -17,9 +18,11 @@
 @property (nonatomic, strong) NSArray *categories;
 @property (nonatomic, strong) NSMutableSet *selectedCategories;
 @property (nonatomic, assign) BOOL isDeal;
-@property (nonatomic, assign) int distance;
-@property (nonatomic, assign) YelpSortMode *sortMode;
-
+@property (nonatomic, assign) YelpSortMode sortMode;
+@property (nonatomic, strong) NSArray *distanceArray;
+@property (nonatomic, strong) NSArray *sortArray;
+@property (nonatomic, strong) NSIndexPath *sortSelectedIndex;
+@property (nonatomic, strong) NSIndexPath *distanceSelectedIndex;
 @end
 
 @implementation FiltersViewController
@@ -31,6 +34,9 @@
         [self initCategories];
     }
     
+    self.distanceArray = @[@"Auto", @"0.3 mile", @"1 mile", @"5 miles", @"20 miles"];
+    self.sortArray = @[@"Best Matched", @"Distance", @"Highest Rated"];
+    
     return self;
 }
 
@@ -40,12 +46,17 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onCancelButtonTapped)];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onApplyButtonTapped)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Search" style:UIBarButtonItemStylePlain target:self action:@selector(onApplyButtonTapped)];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SwitchViewCell" bundle:nil] forCellReuseIdentifier:@"SwitchViewCell"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"OptionCell" bundle:nil] forCellReuseIdentifier:@"OptionCell"];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,18 +75,32 @@
         [filters setObject:names forKey:@"category_filter"];
     }
     
+    NSNumber *isDealNumber = [NSNumber numberWithBool:self.isDeal];
+    [filters setObject:isDealNumber forKey:@"deals_filter"];
+    
+    NSNumber *sortModeNumber = [NSNumber numberWithInt:self.sortMode];
+    [filters setObject:sortModeNumber forKey:@"sort"];
+    
     return filters;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 1) {
-        return self.categories.count;
+    switch (section) {
+        case 0:
+            return 1;
+        case 1:
+            return self.sortArray.count;
+        case 2:
+            return self.distanceArray.count;
+        case 3:
+            return self.categories.count;
+        default:
+            return self.categories.count;
     }
-    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -87,15 +112,42 @@
         return cell;
     }
     
-//    if (indexPath.section == 1) {
-//    
-//    }
-//    
-//    if (indexPath.section == 2) {
-//    
-//    }
-    
     if (indexPath.section == 1) {
+        OptionCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"OptionCell"];
+        cell.nameLabel.text = self.sortArray[indexPath.row];
+        
+        if (!self.sortSelectedIndex) {
+            self.sortSelectedIndex = indexPath;
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            if ([indexPath isEqual:self.sortSelectedIndex]) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            }
+        }
+        
+        return cell;
+    }
+
+    if (indexPath.section == 2) {
+        OptionCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"OptionCell"];
+        cell.nameLabel.text = self.distanceArray[indexPath.row];
+        
+        if (!self.distanceSelectedIndex) {
+            self.distanceSelectedIndex = indexPath;
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            if ([indexPath isEqual:self.distanceSelectedIndex]) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            }
+        }
+        return cell;
+    }
+    
+    if (indexPath.section == 3) {
         SwitchViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"SwitchViewCell"];
     
         cell.titleLabel.text = self.categories[indexPath.row][@"name"];
@@ -108,11 +160,58 @@
     return nil;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0:
+                self.sortMode = YelpSortModeBestMatched;
+                break;
+            case 1:
+                self.sortMode = YelpSortModeDistance;
+                break;
+            case 2:
+                self.sortMode = YelpSortModeHighestRated;
+                break;
+            default:
+                break;
+        }
+        
+        if (![self.sortSelectedIndex isEqual:indexPath]) {
+            UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+            selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
+            UITableViewCell *deselectedCell = [tableView cellForRowAtIndexPath:self.sortSelectedIndex];
+            deselectedCell.accessoryType = UITableViewCellAccessoryNone;
+            
+            self.sortSelectedIndex = indexPath;
+        }
+    }
+    
+    if (indexPath.section == 2) {
+        if (![self.distanceSelectedIndex isEqual:indexPath]) {
+            UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+            selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
+            UITableViewCell *deselectedCell = [tableView cellForRowAtIndexPath:self.distanceSelectedIndex];
+            deselectedCell.accessoryType = UITableViewCellAccessoryNone;
+            
+            self.distanceSelectedIndex = indexPath;
+        }
+    }
+    
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSString *sectionName;
     switch (section) {
         case 1:
-            sectionName = @"Category";
+            sectionName = @"Sort By";
+            break;
+        case 2:
+            sectionName = @"Distance";
+            break;
+        case 3:
+            sectionName = @"Categories";
             break;
         default:
             sectionName = @"";

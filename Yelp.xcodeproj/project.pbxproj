@@ -31,6 +31,8 @@
 		C7681C4A1BE7380700CB2B18 /* FiltersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7681C481BE7380700CB2B18 /* FiltersViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		C7681C4E1BE7E0AA00CB2B18 /* SwitchViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7681C4C1BE7E0AA00CB2B18 /* SwitchViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		C7681C4F1BE7E0AA00CB2B18 /* SwitchViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7681C4D1BE7E0AA00CB2B18 /* SwitchViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		C7681C721BE8948F00CB2B18 /* OptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7681C701BE8948F00CB2B18 /* OptionCell.m */; settings = {ASSET_TAGS = (); }; };
+		C7681C731BE8948F00CB2B18 /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7681C711BE8948F00CB2B18 /* OptionCell.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,9 @@
 		C7681C4B1BE7E0AA00CB2B18 /* SwitchViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewCell.h; sourceTree = "<group>"; };
 		C7681C4C1BE7E0AA00CB2B18 /* SwitchViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewCell.m; sourceTree = "<group>"; };
 		C7681C4D1BE7E0AA00CB2B18 /* SwitchViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchViewCell.xib; sourceTree = "<group>"; };
+		C7681C6F1BE8948F00CB2B18 /* OptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionCell.h; sourceTree = "<group>"; };
+		C7681C701BE8948F00CB2B18 /* OptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionCell.m; sourceTree = "<group>"; };
+		C7681C711BE8948F00CB2B18 /* OptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
 		FCA9D9EAA444BE83C105EDA0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +238,9 @@
 				C7681C4B1BE7E0AA00CB2B18 /* SwitchViewCell.h */,
 				C7681C4C1BE7E0AA00CB2B18 /* SwitchViewCell.m */,
 				C7681C4D1BE7E0AA00CB2B18 /* SwitchViewCell.xib */,
+				C7681C6F1BE8948F00CB2B18 /* OptionCell.h */,
+				C7681C701BE8948F00CB2B18 /* OptionCell.m */,
+				C7681C711BE8948F00CB2B18 /* OptionCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -315,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7681C731BE8948F00CB2B18 /* OptionCell.xib in Resources */,
 				42FD6C5518DC286B000BF2B9 /* InfoPlist.strings in Resources */,
 				C7681C4F1BE7E0AA00CB2B18 /* SwitchViewCell.xib in Resources */,
 				11F304F81BDC02C1000ED8EF /* LaunchScreen.storyboard in Resources */,
@@ -389,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7681C4E1BE7E0AA00CB2B18 /* SwitchViewCell.m in Sources */,
+				C7681C721BE8948F00CB2B18 /* OptionCell.m in Sources */,
 				C7681C491BE7380700CB2B18 /* FiltersViewController.m in Sources */,
 				42FD6C5B18DC286B000BF2B9 /* AppDelegate.m in Sources */,
 				42FD6C5718DC286B000BF2B9 /* main.m in Sources */,
