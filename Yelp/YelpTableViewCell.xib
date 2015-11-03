@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="KGk-i7-Jjw" customClass="YelpTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="315" height="86"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="315" height="85.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PMi-0z-j7Z">
+                        <rect key="frame" x="8" y="8" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="8UH-fc-Y1z"/>
+                            <constraint firstAttribute="height" constant="70" id="Lzi-yI-Jcz"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1. Good Resturant" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOJ-uV-j76">
+                        <rect key="frame" x="86" y="8" width="183.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0.7 mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgS-64-LEb">
+                        <rect key="frame" x="277" y="10" width="29.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNT-hs-437">
+                        <rect key="frame" x="293" y="30" width="13.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="409 Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucB-wi-da9">
+                        <rect key="frame" x="178" y="30" width="62" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thai, Sea food, barbq" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hba-FA-gEV">
+                        <rect key="frame" x="86" y="66" width="104" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7i3-8F-SrR">
+                        <rect key="frame" x="86" y="27" width="84" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="84" id="QeG-9d-vMU"/>
+                            <constraint firstAttribute="height" constant="17" id="wE1-1p-H4V"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="340 Yale Ave N, Seattle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxg-fb-xKn">
+                        <rect key="frame" x="86" y="48" width="113.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="TgS-64-LEb" firstAttribute="leading" secondItem="NOJ-uV-j76" secondAttribute="trailing" constant="8" id="8AY-Bj-Png"/>
+                    <constraint firstItem="NOJ-uV-j76" firstAttribute="leading" secondItem="PMi-0z-j7Z" secondAttribute="trailing" constant="8" id="9ku-9u-sh6"/>
+                    <constraint firstItem="TgS-64-LEb" firstAttribute="leading" secondItem="NOJ-uV-j76" secondAttribute="trailing" constant="8" id="9wJ-Z3-jdQ"/>
+                    <constraint firstItem="TgS-64-LEb" firstAttribute="leading" secondItem="NOJ-uV-j76" secondAttribute="trailing" constant="8" id="D6L-qY-HaU"/>
+                    <constraint firstItem="PMi-0z-j7Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="EbO-a3-Bfa"/>
+                    <constraint firstItem="7i3-8F-SrR" firstAttribute="leading" secondItem="PMi-0z-j7Z" secondAttribute="trailing" constant="8" id="Ej7-wr-bPK"/>
+                    <constraint firstAttribute="trailing" secondItem="TgS-64-LEb" secondAttribute="trailing" constant="8" id="H7k-50-TcD"/>
+                    <constraint firstItem="wxg-fb-xKn" firstAttribute="top" secondItem="7i3-8F-SrR" secondAttribute="bottom" constant="4" id="I5X-T3-IR1"/>
+                    <constraint firstItem="mNT-hs-437" firstAttribute="top" secondItem="TgS-64-LEb" secondAttribute="bottom" constant="8" id="J5N-HD-UVt"/>
+                    <constraint firstItem="ucB-wi-da9" firstAttribute="leading" secondItem="7i3-8F-SrR" secondAttribute="trailing" constant="8" id="Q8i-ho-ASx"/>
+                    <constraint firstItem="hba-FA-gEV" firstAttribute="leading" secondItem="PMi-0z-j7Z" secondAttribute="trailing" constant="8" id="TXK-tr-Ff7"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="PMi-0z-j7Z" secondAttribute="bottom" constant="8" id="UPp-Jc-x2x"/>
+                    <constraint firstItem="hba-FA-gEV" firstAttribute="top" secondItem="wxg-fb-xKn" secondAttribute="bottom" constant="6" id="V18-Wx-w8q"/>
+                    <constraint firstItem="ucB-wi-da9" firstAttribute="centerY" secondItem="7i3-8F-SrR" secondAttribute="centerY" id="Y49-KJ-gkl"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hba-FA-gEV" secondAttribute="bottom" constant="8" id="YPZ-G8-RjY"/>
+                    <constraint firstAttribute="trailing" secondItem="mNT-hs-437" secondAttribute="trailing" constant="8" id="a2d-Oj-GAB"/>
+                    <constraint firstItem="TgS-64-LEb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="bBK-1l-Awg"/>
+                    <constraint firstItem="PMi-0z-j7Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="fNb-5Z-oYb"/>
+                    <constraint firstItem="wxg-fb-xKn" firstAttribute="leading" secondItem="PMi-0z-j7Z" secondAttribute="trailing" constant="8" id="qqs-pQ-cLF"/>
+                    <constraint firstItem="NOJ-uV-j76" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="tfQ-6Y-TPb"/>
+                    <constraint firstItem="7i3-8F-SrR" firstAttribute="top" secondItem="NOJ-uV-j76" secondAttribute="bottom" constant="4.5" id="vtp-hB-Zez"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="9wJ-Z3-jdQ"/>
+                        <exclude reference="D6L-qY-HaU"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="wxg-fb-xKn" id="4aV-Qj-5Xp"/>
+                <outlet property="categoryLabel" destination="hba-FA-gEV" id="N9s-qr-UGY"/>
+                <outlet property="distanceLabel" destination="TgS-64-LEb" id="91d-Wl-pOH"/>
+                <outlet property="nameLabel" destination="NOJ-uV-j76" id="ngJ-sQ-Evz"/>
+                <outlet property="ratingImageView" destination="7i3-8F-SrR" id="LxQ-5f-hlZ"/>
+                <outlet property="ratingLabel" destination="ucB-wi-da9" id="ACe-Ml-KxC"/>
+                <outlet property="thumbImageView" destination="PMi-0z-j7Z" id="rJj-wX-XlA"/>
+            </connections>
+            <point key="canvasLocation" x="309.5" y="310"/>
+        </tableViewCell>
+    </objects>
+</document>
